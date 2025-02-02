@@ -8,5 +8,5 @@ def client():
 
 def test_hello_world(client):
     response = client.get('/')
-    assert response.data == b'Hello, GitHub Actions!'
+    assert response.data == b'Hello, GitHub Action!'
     assert response.status_code == 200

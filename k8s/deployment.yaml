@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: sampleflaskapp
-        image: ec2-user/sampleflaskapp:latest
+        image: johnreygoh/sampleflaskapp:latest
         ports:
         - containerPort: 5000
 ---

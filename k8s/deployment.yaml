@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sampleflaskapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sampleflaskapp
+  template:
+    metadata:
+      labels:
+        app: sampleflaskapp
+    spec:
+      containers:
+      - name: sampleflaskapp
+        image: ec2-user/sampleflaskapp:latest
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sampleflaskapp
+spec:
+  selector:
+    app: sampleflaskapp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: LoadBalancer
